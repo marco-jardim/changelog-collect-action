@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
+import { vi } from "vitest";
 import { ChangesetCollector, CollectOptions } from "../src/collector";
 import { Octokit } from "@octokit/rest";
 
@@ -45,7 +46,7 @@ function buildOctokit(
 
   return {
     repos: {
-      compareCommits: jest.fn().mockResolvedValue({
+      compareCommits: vi.fn().mockResolvedValue({
         data: {
           html_url: compareHtmlUrl,
           commits: commits.map((c) => ({
@@ -55,7 +56,7 @@ function buildOctokit(
           })),
         },
       }),
-      getCommit: jest.fn().mockImplementation(({ ref }: { ref: string }) => {
+      getCommit: vi.fn().mockImplementation(({ ref }: { ref: string }) => {
         const detail = commitMap.get(ref);
         if (!detail) throw new Error(`Unknown ref: ${ref}`);
         return Promise.resolve({ data: detail });
