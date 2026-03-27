@@ -1,0 +1,38 @@
+name: 'Changelog Collect'
+description: 'Collects commit range diffs and outputs a structured changeset.v1.json'
+author: 'marco-jardim'
+branding:
+  icon: 'git-commit'
+  color: 'blue'
+inputs:
+  github_token:
+    description: 'GitHub token for API access'
+    required: true
+  from_sha:
+    description: 'Base commit SHA (start of range)'
+    required: true
+  to_sha:
+    description: 'Head commit SHA (end of range)'
+    required: true
+  repo:
+    description: 'Repository in owner/name format'
+    required: false
+    default: '${{ github.repository }}'
+  exclude_patterns:
+    description: 'Comma-separated glob patterns to exclude'
+    required: false
+    default: 'package-lock.json,yarn.lock,pnpm-lock.yaml,*.lock,*.min.js,*.min.css,dist/**,build/**,*.generated.*'
+  max_diff_bytes:
+    description: 'Maximum total diff bytes before truncation'
+    required: false
+    default: '500000'
+outputs:
+  changeset_path:
+    description: 'Path to the generated changeset.v1.json'
+  commit_count:
+    description: 'Number of commits collected'
+  file_count:
+    description: 'Number of unique files changed'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
