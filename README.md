@@ -187,9 +187,9 @@ Patterns support three wildcards:
 git clone https://github.com/marco-jardim/changelog-collect-action
 cd changelog-collect-action
 npm install
-npm test        # run jest test suite
+npm test        # run vitest test suite
 npm run lint    # type-check with tsc --noEmit
-npm run build   # bundle to dist/index.js via @vercel/ncc
+npm run build   # bundle to dist/index.js via esbuild
 ```
 
 ### Project structure

@@ -17,7 +17,7 @@ checkboxes are ticked.
 - [ ] All tests pass: `npm test` exits with code 0
 - [ ] New logic is covered by at least one unit test
 - [ ] Edge cases (empty arrays, byte truncation, exclusion filter) have dedicated tests
-- [ ] Test coverage is ≥ 80% on statements (enforced by `jest --coverage`)
+- [ ] Test coverage is ≥ 80% on statements (enforced by `vitest --coverage`)
 
 ## Build & Artefacts
 
@@ -25,7 +25,6 @@ checkboxes are ticked.
 - [ ] `dist/index.js` exists and is the bundled artefact from the latest `src/` code
 - [ ] `dist/` is committed to the repository (required by the GitHub Actions runner)
 - [ ] `node_modules/` is **not** committed (`.gitignore` covers it)
-- [ ] `licenses.txt` is generated alongside `dist/index.js` by `@vercel/ncc`
 
 ## Documentation
 
